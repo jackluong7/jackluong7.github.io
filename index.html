@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Luong</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a0f1e;
+    --navy-mid: #111827;
+    --navy-light: #1a2235;
+    --accent: #c9a84c;
+    --accent-light: #e8c97a;
+    --text: #f0ece4;
+    --text-muted: #8a8f9e;
+    --border: rgba(201, 168, 76, 0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    cursor: default;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.25rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 15, 30, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--accent); }
+
+  section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+    border: 1px solid var(--accent);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(240, 236, 228, 0.3);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .divider {
+    width: 3rem;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 2px;
+    background: var(--navy-light);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .experience-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    transition: background 0.2s;
+  }
+
+  .exp-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .exp-meta { padding-top: 0.25rem; }
+
+  .exp-company {
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-muted);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .skill-group-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-item {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: rgba(201, 168, 76, 0.06);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cert-card {
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    background: var(--navy-light);
+    border-radius: 2px;
+  }
+
+  .cert-issuer {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .cert-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .cert-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .honors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .honor-item {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .honor-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .honor-name {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .honor-org {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .honor-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 2rem;
+  }
+
+  .contact-section {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 6rem 4rem;
+  }
+
+  .contact-section h2 { margin-bottom: 1rem; }
+
+  .contact-section p {
+    color: var(--text-muted);
+    max-width: 400px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { gap: 1.5rem; }
+    section, .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-section { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">JL</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Philadelphia, PA</div>
+  <h1>Jack<br><span>Luong.</span></h1>
+  <p class="hero-sub">AI & Technology Intern. Enterprise Technology Integration student at Penn State. Building at the intersection of AI, consulting, and business systems.</p>
+  <div class="hero-cta">
+    <a href="#experience" class="btn btn-primary">View Experience</a>
+    <a href="mailto:jackluong7@gmail.com" class="btn btn-outline">Get in Touch</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>First-gen student.<br>Real-world builder.</h2>
+      <p>I'm a rising senior at Penn State studying Enterprise Technology Integration — a degree built around how technology and business systems work together in practice.</p>
+      <p>This summer I'm interning simultaneously at two AI organizations: MyDD AI, where I'm running AI child safety benchmarks and contributing to product strategy, and Guidewise, where I'm part of the founding Claude consulting team within Anthropic's Claude Partner Network.</p>
+      <p>Previously I interned at Accenture as part of a 30-person global team supporting a major corporate divestment. I'm a long-term Heights, Lenfest, and HIFF Scholar — and a first-generation college student from Philadelphia.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Internships completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">736</div>
+        <div class="stat-label">KORA benchmark tests run</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">90.9%</div>
+        <div class="stat-label">Exemplary safety score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Scholarships held</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="divider"></div>
+  <h2>Where I've worked.</h2>
+  <div class="experience-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">MyDD AI</div>
+        <div class="exp-date">May 2026 — Present</div>
+      </div>
+      <div>
+        <div class="exp-role">Intern</div>
+        <div class="exp-desc">Ran the KORA AI child safety benchmark, completing 736 automated tests and achieving a 90.9% exemplary safety score — outperforming frontier models including Claude and GPT. Investigated a backend HTTP 500 bug and produced a root cause analysis. Conducted a full social media audit across 6 platforms and provided marketing recommendations that influenced the website redesign.</div>
+        <div class="exp-tags">
+          <span class="tag">AI Safety</span>
+          <span class="tag">Benchmark Testing</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Social Media Strategy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">Guidewise</div>
+        <div class="exp-date">May 2026 — Present</div>
+      </div>
+      <div>
+        <div class="exp-role">Founding Claude Consulting Team Member</div>
+        <div class="exp-desc">Selected as a founding member of Guidewise's Claude consulting team within Anthropic's Claude Partner Network, focused on deploying AI agents for enterprise clients. Completed all four Anthropic Academy Claude certifications covering agent skills, API development, Model Context Protocol, and Claude Code.</div>
+        <div class="exp-tags">
+          <span class="tag">Claude AI</span>
+          <span class="tag">AI Agents</span>
+          <span class="tag">MCP</span>
+          <span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">Accenture / DuPont</div>
+        <div class="exp-date">Jun 2025 — Aug 2025</div>
+      </div>
+      <div>
+        <div class="exp-role">Summer Business Analyst</div>
+        <div class="exp-desc">Analyzed thousands of SAP system records on Microsoft Azure, converting data into charts and diagrams for a 30-person global team. Tracked hundreds of defects using macro-enabled Excel tools. Served as one of five US-based analysts on a globally distributed consulting engagement supporting a major corporate divestment.</div>
+        <div class="exp-tags">
+          <span class="tag">SAP</span>
+          <span class="tag">Microsoft Azure</span>
+          <span class="tag">Excel Macros</span>
+          <span class="tag">Consulting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">UPenn / Heights Philadelphia</div>
+        <div class="exp-date">Jun 2024 — Aug 2024</div>
+      </div>
+      <div>
+        <div class="exp-role">Computer Science Instructor</div>
+        <div class="exp-desc">Co-taught intermediate Java to 20 high school students, delivering curriculum on OOP concepts including classes, inheritance, and loops. Guided students through building a feature-complete Connect 4 game in IntelliJ IDEA. Led hands-on debugging sessions throughout the summer.</div>
+        <div class="exp-tags">
+          <span class="tag">Java</span>
+          <span class="tag">OOP</span>
+          <span class="tag">IntelliJ IDEA</span>
+          <span class="tag">Education</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">Skills & Certifications</div>
+  <div class="divider"></div>
+  <h2>What I work with.</h2>
+
+  <div class="skills-grid" style="margin-bottom: 3rem;">
+    <div class="skill-group">
+      <div class="skill-group-title">AI & Emerging Tech</div>
+      <div class="skill-items">
+        <span class="skill-item">Claude AI</span>
+        <span class="skill-item">Claude Code</span>
+        <span class="skill-item">Prompt Engineering</span>
+        <span class="skill-item">AI Agent Development</span>
+        <span class="skill-item">Model Context Protocol</span>
+        <span class="skill-item">LLMs</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Enterprise & Data</div>
+      <div class="skill-items">
+        <span class="skill-item">SAP</span>
+        <span class="skill-item">Microsoft Azure</span>
+        <span class="skill-item">Excel Macros</span>
+        <span class="skill-item">SQL</span>
+        <span class="skill-item">Google Analytics</span>
+        <span class="skill-item">Google Ads</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Development</div>
+      <div class="skill-items">
+        <span class="skill-item">Java</span>
+        <span class="skill-item">Python</span>
+        <span class="skill-item">Node.js</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">GitHub</span>
+        <span class="skill-item">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Tools & Platforms</div>
+      <div class="skill-items">
+        <span class="skill-item">IntelliJ IDEA</span>
+        <span class="skill-item">Microsoft Office</span>
+        <span class="skill-item">Google Suite</span>
+        <span class="skill-item">OBS Studio</span>
+        <span class="skill-item">CapCut</span>
+        <span class="skill-item">Slack</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-bottom: 1rem;">Certifications</div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-issuer">Anthropic Academy</div>
+      <div class="cert-name">Introduction to Agent Skills</div>
+      <div class="cert-date">June 2026</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Anthropic Academy</div>
+      <div class="cert-name">Building with the Claude API</div>
+      <div class="cert-date">June 2026</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Anthropic Academy</div>
+      <div class="cert-name">Introduction to Model Context Protocol</div>
+      <div class="cert-date">June 2026</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Anthropic Academy</div>
+      <div class="cert-name">Claude Code in Action</div>
+      <div class="cert-date">June 2026</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Honors</div>
+  <div class="divider"></div>
+  <h2>Scholarships & Recognition.</h2>
+  <div class="honors-list">
+    <div class="honor-item">
+      <div>
+        <div class="honor-name">Heights Scholar</div>
+        <div class="honor-org">Heights Scholarship Program · Philadelphia, PA</div>
+      </div>
+      <div class="honor-year">2019–</div>
+    </div>
+    <div class="honor-item">
+      <div>
+        <div class="honor-name">Lenfest Scholar</div>
+        <div class="honor-org">Brook J. Lenfest Foundation</div>
+      </div>
+      <div class="honor-year">2023</div>
+    </div>
+    <div class="honor-item">
+      <div>
+        <div class="honor-name">HIFF Scholar</div>
+        <div class="honor-org">Herb it Forward Foundation</div>
+      </div>
+      <div class="honor-year">2023</div>
+    </div>
+    <div class="honor-item">
+      <div>
+        <div class="honor-name">SMASH Wharton Scholar</div>
+        <div class="honor-org">Summer Math and Sciences Honors · University of Pennsylvania</div>
+      </div>
+      <div class="honor-year">2019</div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-section" id="contact">
+  <div class="section-label" style="text-align:center; margin-bottom: 1rem;">Contact</div>
+  <h2>Let's connect.</h2>
+  <p>Open to internship and full-time opportunities in AI, technology, and consulting.</p>
+  <div class="contact-links">
+    <a href="mailto:jackluong7@gmail.com" class="btn btn-primary">jackluong7@gmail.com</a>
+    <a href="https://linkedin.com/in/jackluong7" target="_blank" class="btn btn-outline">LinkedIn</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 Jack Luong · Philadelphia, PA
+</footer>
+
+</body>
+</html>
