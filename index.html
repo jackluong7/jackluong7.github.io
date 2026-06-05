@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --navy: #0a0f1e;
     --navy-mid: #111827;
@@ -18,18 +17,14 @@
     --text-muted: #8a8f9e;
     --border: rgba(201, 168, 76, 0.2);
   }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--navy);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     line-height: 1.7;
-    cursor: default;
   }
-
   nav {
     position: fixed;
     top: 0;
@@ -43,7 +38,6 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-
   nav .logo {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
@@ -52,13 +46,7 @@
     letter-spacing: 0.05em;
     text-decoration: none;
   }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-  }
-
+  nav ul { list-style: none; display: flex; gap: 2.5rem; }
   nav ul a {
     color: var(--text-muted);
     text-decoration: none;
@@ -67,11 +55,8 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   nav ul a:hover { color: var(--accent); }
-
   section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
-
   .hero {
     min-height: 100vh;
     display: flex;
@@ -83,7 +68,6 @@
     padding-left: 4rem;
     padding-right: 4rem;
   }
-
   .hero-tag {
     font-size: 0.75rem;
     letter-spacing: 0.2em;
@@ -94,7 +78,6 @@
     align-items: center;
     gap: 0.75rem;
   }
-
   .hero-tag::before {
     content: '';
     display: block;
@@ -102,7 +85,6 @@
     height: 1px;
     background: var(--accent);
   }
-
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3.5rem, 8vw, 7rem);
@@ -111,9 +93,7 @@
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
   }
-
   h1 span { color: var(--accent); }
-
   .hero-sub {
     font-size: 1.1rem;
     color: var(--text-muted);
@@ -121,13 +101,7 @@
     margin-bottom: 3rem;
     line-height: 1.8;
   }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
     padding: 0.85rem 2rem;
     font-family: 'DM Sans', sans-serif;
@@ -141,36 +115,11 @@
     cursor: pointer;
     display: inline-block;
   }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--navy);
-    border: 1px solid var(--accent);
-  }
-
-  .btn-primary:hover {
-    background: var(--accent-light);
-    border-color: var(--accent-light);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid rgba(240, 236, 228, 0.3);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .divider {
-    width: 3rem;
-    height: 1px;
-    background: var(--accent);
-    margin-bottom: 1rem;
-  }
-
+  .btn-primary { background: var(--accent); color: var(--navy); border: 1px solid var(--accent); }
+  .btn-primary:hover { background: var(--accent-light); border-color: var(--accent-light); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid rgba(240, 236, 228, 0.3); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .divider { width: 3rem; height: 1px; background: var(--accent); margin-bottom: 1rem; }
   .section-label {
     font-size: 0.7rem;
     letter-spacing: 0.25em;
@@ -178,7 +127,6 @@
     color: var(--accent);
     margin-bottom: 0.5rem;
   }
-
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 4vw, 3rem);
@@ -186,96 +134,22 @@
     margin-bottom: 3rem;
     line-height: 1.2;
   }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .about-text p {
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .stat-card {
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    border-radius: 2px;
-    background: var(--navy-light);
-  }
-
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-  }
-
+  .about-text p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 1rem; }
   .experience-list { display: flex; flex-direction: column; gap: 0; }
-
   .exp-item {
     border-top: 1px solid var(--border);
     padding: 2rem 0;
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 3rem;
-    transition: background 0.2s;
   }
-
   .exp-item:last-child { border-bottom: 1px solid var(--border); }
-
   .exp-meta { padding-top: 0.25rem; }
-
-  .exp-company {
-    font-weight: 500;
-    color: var(--accent);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .exp-date {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-  }
-
-  .exp-role {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .exp-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .exp-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
+  .exp-company { font-weight: 500; color: var(--accent); font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .exp-date { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; }
+  .exp-role { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .exp-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
   .tag {
     font-size: 0.7rem;
     letter-spacing: 0.1em;
@@ -285,147 +159,38 @@
     border-radius: 100px;
     color: var(--text-muted);
   }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-group {
-    background: var(--navy-light);
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    border-radius: 2px;
-  }
-
-  .skill-group-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .skill-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .skill-item {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    background: rgba(201, 168, 76, 0.06);
-    border: 1px solid var(--border);
-    padding: 0.3rem 0.75rem;
-    border-radius: 2px;
-  }
-
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .cert-card {
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    background: var(--navy-light);
-    border-radius: 2px;
-  }
-
-  .cert-issuer {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .cert-name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-  }
-
-  .cert-date {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  .honors-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .honor-item {
-    border-top: 1px solid var(--border);
-    padding: 1.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .skill-group { background: var(--navy-light); border: 1px solid var(--border); padding: 1.75rem; border-radius: 2px; }
+  .skill-group-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-item { font-size: 0.8rem; color: var(--text-muted); background: rgba(201, 168, 76, 0.06); border: 1px solid var(--border); padding: 0.3rem 0.75rem; border-radius: 2px; }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .cert-card { border: 1px solid var(--border); padding: 1.75rem; background: var(--navy-light); border-radius: 2px; }
+  .cert-issuer { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .cert-name { font-size: 0.95rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.5rem; }
+  .cert-date { font-size: 0.8rem; color: var(--text-muted); }
+  .honors-list { display: flex; flex-direction: column; gap: 0; }
+  .honor-item { border-top: 1px solid var(--border); padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; }
   .honor-item:last-child { border-bottom: 1px solid var(--border); }
-
-  .honor-name {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  .honor-org {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-  }
-
-  .honor-year {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--accent);
-    font-weight: 700;
-    text-align: right;
-    flex-shrink: 0;
-    margin-left: 2rem;
-  }
-
-  .contact-section {
-    text-align: center;
-    border-top: 1px solid var(--border);
-    padding: 6rem 4rem;
-  }
-
+  .honor-name { font-size: 1rem; font-weight: 500; }
+  .honor-org { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+  .honor-year { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; text-align: right; flex-shrink: 0; margin-left: 2rem; }
+  .contact-section { text-align: center; border-top: 1px solid var(--border); padding: 6rem 4rem; }
   .contact-section h2 { margin-bottom: 1rem; }
-
-  .contact-section p {
-    color: var(--text-muted);
-    max-width: 400px;
-    margin: 0 auto 2.5rem;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
+  .contact-section p { color: var(--text-muted); max-width: 400px; margin: 0 auto 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
   footer {
     text-align: center;
     padding: 2rem;
     color: var(--text-muted);
     font-size: 0.8rem;
     border-top: 1px solid var(--border);
+    line-height: 2;
   }
-
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     nav ul { gap: 1.5rem; }
     section, .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .contact-section { padding: 4rem 1.5rem; }
   }
@@ -446,7 +211,7 @@
 <div class="hero">
   <div class="hero-tag">Philadelphia, PA</div>
   <h1>Jack<br><span>Luong.</span></h1>
-  <p class="hero-sub">AI & Technology Intern. Enterprise Technology Integration student at Penn State. Building at the intersection of AI, consulting, and business systems.</p>
+  <p class="hero-sub">AI & Technology professional. Enterprise Technology Integration student at Penn State. Building at the intersection of AI, consulting, and business systems.</p>
   <div class="hero-cta">
     <a href="#experience" class="btn btn-primary">View Experience</a>
     <a href="mailto:jackluong7@gmail.com" class="btn btn-outline">Get in Touch</a>
@@ -456,31 +221,11 @@
 <section id="about">
   <div class="section-label">About</div>
   <div class="divider"></div>
-  <div class="about-grid">
-    <div class="about-text">
-      <h2>First-gen student.<br>Real-world builder.</h2>
-      <p>I'm a rising senior at Penn State studying Enterprise Technology Integration — a degree built around how technology and business systems work together in practice.</p>
-      <p>This summer I'm interning simultaneously at two AI organizations: MyDD AI, where I'm running AI child safety benchmarks and contributing to product strategy, and Guidewise, where I'm part of the founding Claude consulting team within Anthropic's Claude Partner Network.</p>
-      <p>Previously I interned at Accenture as part of a 30-person global team supporting a major corporate divestment. I'm a long-term Heights, Lenfest, and HIFF Scholar — and a first-generation college student from Philadelphia.</p>
-    </div>
-    <div class="about-stats">
-      <div class="stat-card">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Internships completed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">736</div>
-        <div class="stat-label">KORA benchmark tests run</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">90.9%</div>
-        <div class="stat-label">Exemplary safety score</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Scholarships held</div>
-      </div>
-    </div>
+  <h2>First-gen student.<br>Real-world builder.</h2>
+  <div class="about-text">
+    <p>I'm a rising senior at Penn State studying Enterprise Technology Integration, a degree built around how technology and business systems work together in practice. I'm a first-generation college student from Philadelphia and a long-term Heights, Lenfest, and HIFF Scholar.</p>
+    <p>This summer I'm working simultaneously at two AI organizations: MyDD AI, where I contribute to AI child safety research, product strategy, and social media growth, and Guidewise, where I'm part of the founding Claude consulting team within Anthropic's Claude Partner Network.</p>
+    <p>Previously I interned at Accenture as part of a 30-person global team supporting a major corporate divestment, and taught Java programming to high school students at the University of Pennsylvania. I'm open to internship and full-time opportunities in AI, technology, and consulting.</p>
   </div>
 </section>
 
@@ -496,14 +241,15 @@
         <div class="exp-date">May 2026 — Present</div>
       </div>
       <div>
-        <div class="exp-role">Intern</div>
-        <div class="exp-desc">Ran the KORA AI child safety benchmark, completing 736 automated tests and achieving a 90.9% exemplary safety score — outperforming frontier models including Claude and GPT. Investigated a backend HTTP 500 bug and produced a root cause analysis. Conducted a full social media audit across 6 platforms and provided marketing recommendations that influenced the website redesign.</div>
+        <div class="exp-role">AI Research & Marketing Analyst</div>
+        <div class="exp-desc">Working at an AI startup building a kid-safe chatbot with built-in parent visibility for ages 6-17. Ran the KORA AI child safety benchmark against MyDD's chat endpoint, completing 736 automated tests and achieving a 90.9% exemplary safety score, outperforming frontier models including Claude and GPT. Investigated and documented a backend HTTP 500 bug, produced a full root cause analysis, and raised a detailed GitHub issue with a three-layer fix recommendation. Conducted a full social media audit across six platforms and provided marketing feedback that directly influenced the website redesign and content strategy. Provided structured product feedback on the MyDD Learn game across multiple worlds and levels, contributing to ongoing UX improvements. Created and edited video demos using OBS Studio and CapCut for social media and conference presentations.</div>
         <div class="exp-tags">
           <span class="tag">AI Safety</span>
           <span class="tag">Benchmark Testing</span>
           <span class="tag">GitHub</span>
           <span class="tag">Node.js</span>
           <span class="tag">Social Media Strategy</span>
+          <span class="tag">Product Feedback</span>
         </div>
       </div>
     </div>
@@ -515,12 +261,13 @@
       </div>
       <div>
         <div class="exp-role">Founding Claude Consulting Team Member</div>
-        <div class="exp-desc">Selected as a founding member of Guidewise's Claude consulting team within Anthropic's Claude Partner Network, focused on deploying AI agents for enterprise clients. Completed all four Anthropic Academy Claude certifications covering agent skills, API development, Model Context Protocol, and Claude Code.</div>
+        <div class="exp-desc">Selected as a founding member of Guidewise's Claude consulting team, part of Anthropic's Claude Partner Network, focused on deploying AI agents for enterprise clients. Completed all four Anthropic Academy Claude certifications covering agent skills, API development, Model Context Protocol, and Claude Code. Working toward building and deploying agentic workflows for real client consulting engagements alongside an experienced team with backgrounds from Deloitte, Gartner, and IBM.</div>
         <div class="exp-tags">
           <span class="tag">Claude AI</span>
           <span class="tag">AI Agents</span>
           <span class="tag">MCP</span>
           <span class="tag">Prompt Engineering</span>
+          <span class="tag">Enterprise Consulting</span>
         </div>
       </div>
     </div>
@@ -532,12 +279,13 @@
       </div>
       <div>
         <div class="exp-role">Summer Business Analyst</div>
-        <div class="exp-desc">Analyzed thousands of SAP system records on Microsoft Azure, converting data into charts and diagrams for a 30-person global team. Tracked hundreds of defects using macro-enabled Excel tools. Served as one of five US-based analysts on a globally distributed consulting engagement supporting a major corporate divestment.</div>
+        <div class="exp-desc">Interned at Accenture as part of the FY25 Skills to Succeed program, embedded on a DuPont divestment project. Analyzed thousands of SAP system records hosted on Microsoft Azure, including library usage logs, access data, and financial entries, converting them into charts and diagrams presented at weekly global team reviews. Tracked and logged hundreds of defects using macro-enabled Excel tools, managing a daily volume of 3 to 30 tickets. Served as one of five US-based analysts on a 30-person globally distributed consulting team, developing cross-timezone communication and professional skills working alongside international stakeholders.</div>
         <div class="exp-tags">
           <span class="tag">SAP</span>
           <span class="tag">Microsoft Azure</span>
           <span class="tag">Excel Macros</span>
           <span class="tag">Consulting</span>
+          <span class="tag">Data Analysis</span>
         </div>
       </div>
     </div>
@@ -549,12 +297,13 @@
       </div>
       <div>
         <div class="exp-role">Computer Science Instructor</div>
-        <div class="exp-desc">Co-taught intermediate Java to 20 high school students, delivering curriculum on OOP concepts including classes, inheritance, and loops. Guided students through building a feature-complete Connect 4 game in IntelliJ IDEA. Led hands-on debugging sessions throughout the summer.</div>
+        <div class="exp-desc">Co-taught intermediate Java programming to 20 high school students as part of the Blended Learning Initiative at the University of Pennsylvania. Delivered curriculum covering core OOP concepts including classes, inheritance, and loops. Guided students through building a fully functional Connect 4 game with customizable skins and persistent game history using IntelliJ IDEA and Replit. Led hands-on debugging sessions throughout the summer, helping each student progress from foundational syntax to a working, feature-complete Java application.</div>
         <div class="exp-tags">
           <span class="tag">Java</span>
           <span class="tag">OOP</span>
           <span class="tag">IntelliJ IDEA</span>
           <span class="tag">Education</span>
+          <span class="tag">Debugging</span>
         </div>
       </div>
     </div>
@@ -686,7 +435,8 @@
 </div>
 
 <footer>
-  © 2026 Jack Luong · Philadelphia, PA
+  © 2026 Jack Luong · Philadelphia, PA<br>
+  <span style="font-size: 0.75rem; opacity: 0.6;">Designed and built by Jack Luong using HTML and CSS, applying skills from coursework at Penn State University.</span>
 </footer>
 
 </body>
